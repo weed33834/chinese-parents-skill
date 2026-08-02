@@ -2,56 +2,57 @@
 
 > 中国式家长行为模拟框架 — 捕捉当代中国家庭中典型父母的言语模式、决策逻辑与情感张力。
 
-A behavioral simulation framework that models the archetypal speech patterns, decision-making logic, and emotional dynamics of traditional Chinese parents. Designed for cultural studies, social simulation, and AI-assisted role-playing scenarios.
+[English](README-EN.md)
 
 ---
 
-## Overview
+## 概述
 
-Chinese-style parenting (中国式家长) is a well-recognized cultural archetype in contemporary Chinese society. It embodies a distinct set of values — academic achievement as the ultimate priority, stable employment above all, marriage at the "right" age, frugality, filial piety, and the pervasive influence of "face" (面子) in social comparisons.
+中国式家长（Chinese-style parenting）是当代中国社会中一个广为人知的文化原型。它代表了一套独特的价值观体系——成绩至上、稳定优先、适龄婚嫁、勤俭持家、孝道为本，以及"面子"文化驱动下的社交攀比。
 
-This framework deconstructs these patterns into structured, reusable components:
+本框架将上述行为模式拆解为结构化、可复用的组件：
 
-- **Core value dimensions** — education, career, marriage, consumption, family, social dynamics
-- **Life-stage mapping** — from primary school through adulthood, with shifting parental concerns
-- **Scenario libraries** — pre-built response patterns for common flashpoints (grades, career changes, dating, spending, family gatherings)
-- **Emotional layering** — the "tough exterior, soft interior" (刀子嘴豆腐心) dynamic that defines genuine Chinese parenting interactions
+- **核心价值维度** — 教育、职业、婚恋、消费、家庭、社交六大维度
+- **人生阶段映射** — 从小学到成家，家长关注点与表达方式的演变
+- **场景库** — 预置的典型场景回应模式（成绩、择业、婚恋、消费、家庭相处）
+- **情感层次** — 中国式家长特有的"刀子嘴豆腐心"动态，模拟表面语言与内心真实想法的张力
 
-## Contents
+## 目录结构
 
 ```
 chinese-parent-simulator/
-├── SKILL.md              # Main skill definition and scenario library
-├── README.md             # This file
-└── LICENSE               # MIT License
+├── SKILL.md              # 主技能定义文件，含完整场景库
+├── README.md             # 本文件（中文版）
+├── README-EN.md          # 英文版
+└── LICENSE               # MIT 许可证
 ```
 
-## Usage
+## 使用方式
 
-This framework is designed as an AI Skill definition. It can be consumed by compatible AI agents to simulate Chinese-style parenting behavior in interactive scenarios.
+本框架以 AI Skill 的形式定义，可被兼容的 AI 智能体加载，用于在交互场景中模拟中国式家长行为。
 
-### Basic invocation
+### 触发场景
 
-The skill activates when a user describes a scenario involving:
+当用户描述以下情境时，Skill 自动激活：
 
-- Academic or work performance feedback
-- Major life decisions (career change, entrepreneurship, relocation)
-- Relationship and marriage status
-- Spending and financial habits
-- Family communication gaps
+- 学业或工作表现反馈
+- 重大人生决策（换工作、创业、搬家）
+- 婚恋状态（恋爱、分手、相亲、不婚）
+- 消费与财务习惯
+- 家庭沟通与代际关系
 
-### Output format
+### 输出格式
 
-Each simulation response follows a structured format:
+每次模拟回复遵循以下结构化格式：
 
 ```
-【场景】Context description of the current situation
-【角色状态】Parent's emotional state (anxiety / anger / concern / relief / inner conflict)
-【对话】The simulated dialogue in the parent's voice
-【内心OS】Unspoken thoughts — revealing the care beneath the criticism
+【场景】当前情境描述
+【角色状态】家长的情绪状态（焦虑 / 愤怒 / 担忧 / 欣慰 / 内心挣扎）
+【对话】以家长口吻输出的模拟对话
+【内心OS】未说出口的真实想法——揭示批评背后的关心
 ```
 
-### Example
+### 示例
 
 ```
 【场景】26岁儿子辞去互联网大厂工作，准备自己开奶茶店
@@ -71,37 +72,37 @@ Each simulation response follows a structured format:
 嘴上骂得凶，心里已经在盘算能帮上什么忙了。
 ```
 
-## Scenarios covered
+## 场景覆盖
 
-| Category | Triggers | Typical responses |
-|----------|----------|-------------------|
-| Academic / Work | Exams, grades, performance reviews, promotions | Comparison with peers, downplaying success, catastrophic predictions |
-| Life choices | Quitting jobs, starting a business, changing careers | Initial strong opposition, listing worst-case scenarios |
-| Relationships | Dating, marriage, breakups, being single | Urgency, interrogation about partner's background, matchmaking |
-| Spending | Shopping, large purchases, dining out | Price-checking, cost-benefit lectures, intergenerational comparison |
-| Family | Phone calls, home visits, holidays | Guilt-tripping about rare contact, "face" pressure from relatives |
+| 类别 | 触发词 | 典型回应模式 |
+|------|--------|-------------|
+| 学业 / 工作 | 考试、分数、绩效、升职 | 对比同龄人、淡化成绩、悲观预言 |
+| 人生选择 | 辞职、创业、转行、gap year | 强烈反对、列举最坏可能、无奈妥协 |
+| 婚恋关系 | 恋爱、分手、相亲、单身 | 紧迫催促、盘问对方背景、安排相亲 |
+| 消费支出 | 购物、大额消费、下馆子 | 先问价、嫌贵、算账教育、对比当年 |
+| 家庭相处 | 打电话、回家、过节 | 埋怨不常联系、"面子"压力、愧疚引导 |
 
-## Value dimensions
+## 价值维度
 
-| Dimension | Core belief | Typical expression |
-|-----------|------------|-------------------|
-| Education | Grades determine future | "Without a good university, your life is over" |
-| Career | Stability above all | Civil service, teaching, medicine — "proper jobs" |
-| Marriage | Marry at the right age, match social standing | "Everyone else's kid is already married" |
-| Spending | Save first, spend later | "Money doesn't grow on trees" |
-| Family | Filial piety, parental authority | "I've eaten more salt than you've eaten rice" |
-| Social | Face, comparison, community standing | "Don't let the relatives laugh at us" |
+| 维度 | 核心信念 | 典型表达 |
+|------|---------|---------|
+| 教育 | 成绩决定未来 | "考不上好大学这辈子就完了" |
+| 职业 | 稳定压倒一切 | "公务员、老师、医生才是正经工作" |
+| 婚恋 | 适龄结婚，门当户对 | "别人家孩子都会打酱油了" |
+| 消费 | 节俭储蓄优先 | "钱要省着花，以后用钱的地方多着呢" |
+| 家庭 | 孝道为先，家长权威 | "我吃的盐比你吃的米还多" |
+| 社交 | 人情面子，攀比心理 | "别让亲戚看笑话" |
 
-## Boundaries
+## 边界说明
 
-This framework is intended for **cultural research, educational simulation, and AI-assisted role-playing**. It explicitly excludes:
+本框架用于 **文化研究、教育模拟与 AI 辅助角色扮演**。明确排除以下内容：
 
-- Physical violence or abuse
-- Illegal confinement or extreme control
-- Regional or ethnic stereotypes
-- Targeting specific real individuals
-- One-dimensional negative portrayal (the framework preserves the underlying care dynamic)
+- 肢体暴力或虐待
+- 非法限制人身自由或极端控制
+- 地域或民族刻板印象
+- 针对真实个体的模拟
+- 单一负面的刻板刻画（框架保留"刀子嘴豆腐心"的关爱底色）
 
-## License
+## 许可
 
 MIT
