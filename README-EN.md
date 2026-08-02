@@ -1,6 +1,6 @@
 # Chinese Parents Skill
 
-> A behavioral simulation framework for Chinese-style parenting (中国式家长). Captures the archetypal speech patterns, decision logic, and emotional dynamics of traditional Chinese parents across various life scenarios.
+> A behavioral simulation framework for Chinese-style parenting (中国式家长). Captures the archetypal speech patterns, decision logic, and emotional dynamics of traditional Chinese parents. Supports **8 parent type profiles** — each responds differently to the same scenario.
 
 [中文](README.md)
 
@@ -8,20 +8,28 @@
 
 ## Overview
 
-Chinese-style parenting (中国式家长) is a well-recognized cultural archetype in contemporary Chinese society. It embodies a distinct set of values — academic achievement as the ultimate priority, stable employment above all, marriage at the "right" age, frugality, filial piety, and the pervasive influence of "face" (面子) in social comparisons.
+Chinese-style parenting is a well-recognized cultural archetype in contemporary Chinese society. It embodies a distinct set of values — academic achievement as the ultimate priority, stable employment above all, marriage at the "right" age, frugality, filial piety, and the pervasive influence of "face" (面子) in social comparisons.
 
-This framework deconstructs these patterns into structured, reusable components:
+However, Chinese parenting is not monolithic. **Different parent types can react in completely opposite ways to the same situation.** This framework deconstructs Chinese parenting into 8 distinct profiles, each with its own belief system, speech patterns, and emotional dynamics.
 
-- **Core value dimensions** — education, career, marriage, consumption, family, social dynamics
-- **Life-stage mapping** — from primary school through adulthood, with shifting parental concerns
-- **Scenario libraries** — pre-built response patterns for common flashpoints (grades, career changes, dating, spending, family gatherings)
-- **Emotional layering** — the "tough exterior, soft interior" (刀子嘴豆腐心) dynamic that defines genuine Chinese parenting interactions
+### Parent Types
+
+| Type | One-liner | Emotional Temperature |
+|------|-----------|---------------------|
+| **Tiger Parent** | Grades are everything, strictness is love | Cold |
+| **Hustle Parent** | Can't lose at the starting line | Warm |
+| **Helicopter Parent** | My child can't do it without me | Warm |
+| **Zen Parent** | Let nature take its course | Hot |
+| **Zombie Parent** | Absent until it's time to criticize | Cold |
+| **Controller Parent** | I'll arrange your life for you | Cold |
+| **Democratic Parent** | We communicate as equals | Hot |
+| **Absent Parent** | Child-rearing is not my job | Freezing |
 
 ## Repository Structure
 
 ```
 chinese-parents-skill/
-├── SKILL.md              # Main skill definition and scenario library
+├── SKILL.md              # Main skill definition with full scenario library
 ├── README.md             # Chinese documentation
 ├── README-EN.md          # English documentation (this file)
 └── LICENSE               # MIT License
@@ -29,81 +37,72 @@ chinese-parents-skill/
 
 ## Usage
 
-This framework is designed as an AI Skill definition. It can be consumed by compatible AI agents to simulate Chinese-style parenting behavior in interactive scenarios.
+### Selecting a Parent Type
 
-### Trigger Scenarios
+Users can activate a specific type in three ways:
 
-The skill activates when a user describes a scenario involving:
+**Explicit:**
+```
+"Use tiger mom mode"
+"Switch to zen parent"
+"Simulate a helicopter parent"
+```
 
-- Academic or work performance feedback
-- Major life decisions (career change, entrepreneurship, relocation)
-- Relationship and marriage status
-- Spending and financial habits
-- Family communication gaps
+**Inferred from description:**
+```
+"My mom signed me up for five more classes" → Hustle Parent
+"My dad controls everything I do" → Controller Parent
+```
+
+**Default:** Falls back to "Typical Mixed Chinese Parent" when no type is specified.
 
 ### Output Format
 
-Each simulation response follows a structured format:
+Each simulation follows this structure:
 
 ```
-【场景】Context description of the current situation
-【角色状态】Parent's emotional state (anxiety / anger / concern / relief / inner conflict)
-【对话】The simulated dialogue in the parent's voice
-【内心OS】Unspoken thoughts — revealing the care beneath the criticism
+【Parent Type】Tiger Parent
+
+【Scenario】Description of the current situation
+
+【State】Parent's emotional state
+
+【Dialogue】Simulated dialogue in the parent's voice
+
+【Inner Voice】Unspoken thoughts — revealing the care beneath the criticism
 ```
 
-### Example
+### Scenario × Type Comparison
 
-```
-【场景】26-year-old son quits a big tech company to start a bubble tea shop
+Same scenario ("child ranked 3rd in class") — different parent types:
 
-【角色状态】Shock → Anger → Worry → Reluctant acceptance
-
-【对话】
-"Are you crazy? You just quit a top-tier company? Do you know how many
-people are dying to get in? A bubble tea shop? Do you know anything about
-running a business? Do you have any idea how many shops have gone under?"
-
-(Pause, tone softens)
-"Fine. You're not going to listen to me anyway. How much capital do you have?
-Have you picked a location? ... Forget it, I'll come with you this weekend to
-take a look. Don't let anyone cheat you."
-
-【内心OS】
-He's worried sick but knows he can't stop him. The only thing left is to
-help where he can. The harsh words are just a cover.
-```
+| Type | Reaction |
+|------|----------|
+| **Tiger** | "3rd? What about 1st and 2nd? ... 92 on math? Where did you lose those 8 points?" (then calls relatives to brag) |
+| **Hustle** | "3rd is okay, but the neighbor's kid took three summer cram courses. I signed you up for a sprint class." |
+| **Zen** | "3rd is great! What do you want for dinner? Don't put too much pressure on yourself." |
+| **Helicopter** | "Is the teacher not good enough? I'm going to talk to the school tomorrow." |
+| **Controller** | "I've already arranged extra tutoring — two hours of math and one hour of English every weekend." |
+| **Zombie** | "Only 3rd? And I wasn't even pushing you." (goes back to phone) |
+| **Democratic** | "Are you happy with your results? Any subject you need help with?" |
+| **Absent** | "Oh, nice. ... Hey, is your mom planning to sign up for any classes?" |
 
 ## Scenarios Covered
 
-| Category | Triggers | Typical Response Pattern |
-|----------|----------|------------------------|
-| Academic / Work | Exams, grades, performance reviews, promotions | Peer comparison, downplaying success, catastrophic predictions |
-| Life Choices | Quitting jobs, starting a business, changing careers | Strong opposition, worst-case scenarios, reluctant acceptance |
-| Relationships | Dating, breakups, being single, matchmaking | Urgency, background interrogation, arranged dating |
-| Spending | Shopping, large purchases, dining out | Price-checking, cost lectures, intergenerational comparison |
-| Family | Phone calls, home visits, holidays | Guilt-tripping, "face" pressure, emotional manipulation |
+| Category | Triggers | Coverage |
+|----------|----------|----------|
+| Academic / Work | Exams, grades, performance reviews | 8 distinct response patterns per scenario |
+| Life Choices | Quitting jobs, starting a business, changing careers | From "strong opposition" to "analytical support" |
+| Relationships | Dating, breakups, being single, marriage pressure | From "forced marriage" to "respect your choice" |
+| Spending | Shopping, large purchases | From "financial control" to "enjoy your money" |
+| Family | Phone calls, home visits, holidays | From "set rules" to "we miss you" |
 
-## Value Dimensions
+## Version History
 
-| Dimension | Core Belief | Typical Expression |
-|-----------|------------|-------------------|
-| Education | Grades determine the future | "Without a good university, your life is over" |
-| Career | Stability above all | "Civil service, teaching, medicine — those are proper jobs" |
-| Marriage | Marry at the right age, match social standing | "Everyone else's kid is already married" |
-| Spending | Save first, spend later | "Money doesn't grow on trees" |
-| Family | Filial piety, parental authority | "I've eaten more salt than you've eaten rice" |
-| Social | Face, comparison, community standing | "Don't let the relatives laugh at us" |
-
-## Boundaries
-
-This framework is intended for **cultural research, educational simulation, and AI-assisted role-playing**. It explicitly excludes:
-
-- Physical violence or abuse
-- Illegal confinement or extreme control
-- Regional or ethnic stereotypes
-- Targeting specific real individuals
-- One-dimensional negative portrayal (the framework preserves the underlying care dynamic)
+| Version | Changes |
+|---------|---------|
+| 2.0.0 | Added 8 parent type profiles, scenario × type matrix, type selection mechanism, hybrid mode |
+| 1.0.0 | Initial release with basic scenario library |
 
 ## License
 
