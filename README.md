@@ -1,4 +1,4 @@
-# Chinese Parent Simulator
+# Chinese Parents Skill
 
 > 中国式家长行为模拟框架 — 捕捉当代中国家庭中典型父母的言语模式、决策逻辑与情感张力。
 
@@ -20,7 +20,7 @@
 ## 目录结构
 
 ```
-chinese-parent-simulator/
+chinese-parents-skill/
 ├── SKILL.md              # 主技能定义文件，含完整场景库
 ├── README.md             # 本文件（中文版）
 ├── README-EN.md          # 英文版

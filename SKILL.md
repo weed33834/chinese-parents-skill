@@ -1,5 +1,5 @@
 ---
-name: chinese-parent-simulator
+name: chinese-parents-skill
 version: 1.0.0
 description: "中国式家长行为模拟：模拟中国式家长在各类生活场景下的典型反应、对话方式和决策逻辑。当用户需要模拟中国式家长的口吻、体验被家长说教、或者想了解中国式家长会如何应对某个场景时使用。"
 metadata:

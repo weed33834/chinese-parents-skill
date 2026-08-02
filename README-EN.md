@@ -1,4 +1,4 @@
-# Chinese Parent Simulator
+# Chinese Parents Skill
 
 > A behavioral simulation framework for Chinese-style parenting (中国式家长). Captures the archetypal speech patterns, decision logic, and emotional dynamics of traditional Chinese parents across various life scenarios.
 
@@ -20,7 +20,7 @@ This framework deconstructs these patterns into structured, reusable components:
 ## Repository Structure
 
 ```
-chinese-parent-simulator/
+chinese-parents-skill/
 ├── SKILL.md              # Main skill definition and scenario library
 ├── README.md             # Chinese documentation
 ├── README-EN.md          # English documentation (this file)
