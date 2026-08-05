@@ -1,6 +1,6 @@
 # Chinese Parents Skill
 
-> A behavioral simulation framework for Chinese-style parenting (中国式家长). Captures the archetypal speech patterns, decision logic, and emotional dynamics of traditional Chinese parents. Supports **8 parent type profiles** — each responds differently to the same scenario.
+> A behavioral simulation and diagnosis framework for Chinese-style parenting (中国式家长). Based on a **10-dimension composable system** covering all behavioral variants. Supports **Simulation Mode** and **Diagnosis Mode**.
 
 [中文](README.md)
 
@@ -8,101 +8,110 @@
 
 ## Overview
 
-Chinese-style parenting is a well-recognized cultural archetype in contemporary Chinese society. It embodies a distinct set of values — academic achievement as the ultimate priority, stable employment above all, marriage at the "right" age, frugality, filial piety, and the pervasive influence of "face" (面子) in social comparisons.
+Chinese-style parenting is not monolithic. **This framework uses 10 independent dimensions to describe parental behavior differences.** Each dimension has 3-4 levels, theoretically covering 3^10 ≈ 59,049 parent profiles.
 
-However, Chinese parenting is not monolithic. **Different parent types can react in completely opposite ways to the same situation.** This framework deconstructs Chinese parenting into 8 distinct profiles, each with its own belief system, speech patterns, and emotional dynamics.
+### Core Capabilities
 
-### Parent Types
+| Mode | Purpose | Example |
+|------|---------|---------|
+| **Simulation** | Generate parent behavior from dimension combination | "Tiger mom with warmer tone, I ranked 3rd" |
+| **Diagnosis** | Analyze parent type from user description | "Help me figure out what kind of parent my mom is" |
 
-| Type | One-liner | Emotional Temperature |
-|------|-----------|---------------------|
-| **Tiger Parent** | Grades are everything, strictness is love | Cold |
-| **Hustle Parent** | Can't lose at the starting line | Warm |
-| **Helicopter Parent** | My child can't do it without me | Warm |
-| **Zen Parent** | Let nature take its course | Hot |
-| **Zombie Parent** | Absent until it's time to criticize | Cold |
-| **Controller Parent** | I'll arrange your life for you | Cold |
-| **Democratic Parent** | We communicate as equals | Hot |
-| **Absent Parent** | Child-rearing is not my job | Freezing |
+## 10-Dimension Profile System
 
-## Repository Structure
-
-```
-chinese-parents-skill/
-├── SKILL.md              # Main skill definition with full scenario library
-├── README.md             # Chinese documentation
-├── README-EN.md          # English documentation (this file)
-└── LICENSE               # MIT License
-```
+| # | Dimension | Core Question | Levels |
+|---|-----------|---------------|--------|
+| 1 | **Control** | How much do they control? | Laissez-faire ← Moderate → Strict → Domineering |
+| 2 | **Temperature** | How warm is the emotional climate? | Cold ← Rational → Warm → Indulgent |
+| 3 | **Participation** | How involved are they? | Absent ← Passive → Active → Overbearing |
+| 4 | **Anxiety** | How anxious about the future? | Zen ← Moderate → Anxious → Panicked |
+| 5 | **Communication** | How do they talk to their child? | Command ← Lecture → Discuss → Listen |
+| 6 | **Values** | Traditional or progressive? | Traditional ← Mixed → Progressive |
+| 7 | **Finance** | How do they handle money? | Stingy ← Moderate → Generous |
+| 8 | **Expectation** | How high are the expectations? | None ← Moderate → Extremely High |
+| 9 | **Social** | How do they manage social life? | Restrictive ← Guided → Open |
+| 10 | **Independence** | How do they foster independence? | Do-it-all ← Guide → Let Go |
 
 ## Usage
 
-### Selecting a Parent Type
+### Simulation Mode
 
-Users can activate a specific type in three ways:
+Three ways to specify dimensions:
 
-**Explicit:**
 ```
-"Use tiger mom mode"
-"Switch to zen parent"
-"Simulate a helicopter parent"
+# Natural language description (recommended)
+"My mom is super strict but really cares about me"
+→ Control:Strict + Temperature:Warm
+
+# Modify from reference type
+"Like tiger mom, but warmer temperature"
+
+# Direct specification
+"Control:Strict + Temperature:Warm + Anxiety:Anxious + Communication:Discuss"
 ```
 
-**Inferred from description:**
+### Diagnosis Mode
+
+Just describe the parent's behavior:
+
 ```
-"My mom signed me up for five more classes" → Hustle Parent
-"My dad controls everything I do" → Controller Parent
+"Help me analyze what kind of parent my mom is"
+"My mom always does this... what's her psychology?"
 ```
 
-**Default:** Falls back to "Typical Mixed Chinese Parent" when no type is specified.
+The AI will ask follow-up questions if needed, then generate a diagnostic report.
 
 ### Output Format
 
-Each simulation follows this structure:
+Simulation mode:
 
 ```
-【Parent Type】Tiger Parent
+【Profile】
+  Control: Strict | Temperature: Warm | Participation: Active
+  Anxiety: Anxious | Communication: Command | Values: Traditional
+  Finance: Moderate | Expectation: High | Social: Restrictive
+  Independence: Do-it-all
 
-【Scenario】Description of the current situation
-
-【State】Parent's emotional state
-
-【Dialogue】Simulated dialogue in the parent's voice
-
-【Inner Voice】Unspoken thoughts — revealing the care beneath the criticism
+【Scenario】xxx
+【State】xxx
+【Dialogue】xxx
+【Inner Voice】xxx
 ```
 
-### Scenario × Type Comparison
+Diagnosis mode:
 
-Same scenario ("child ranked 3rd in class") — different parent types:
+```
+┌──────────────────────────────────────┐
+│    Chinese Parent Type Diagnosis      │
+└──────────────────────────────────────┘
+【Profile】10-dimension visualization
+【Similar Types】Closest known parent types
+【Scenario Predictions】Behavior predictions
+【Communication Tips】Customized strategies
+```
 
-| Type | Reaction |
-|------|----------|
-| **Tiger** | "3rd? What about 1st and 2nd? ... 92 on math? Where did you lose those 8 points?" (then calls relatives to brag) |
-| **Hustle** | "3rd is okay, but the neighbor's kid took three summer cram courses. I signed you up for a sprint class." |
-| **Zen** | "3rd is great! What do you want for dinner? Don't put too much pressure on yourself." |
-| **Helicopter** | "Is the teacher not good enough? I'm going to talk to the school tomorrow." |
-| **Controller** | "I've already arranged extra tutoring — two hours of math and one hour of English every weekend." |
-| **Zombie** | "Only 3rd? And I wasn't even pushing you." (goes back to phone) |
-| **Democratic** | "Are you happy with your results? Any subject you need help with?" |
-| **Absent** | "Oh, nice. ... Hey, is your mom planning to sign up for any classes?" |
+## 10 Scenarios
 
-## Scenarios Covered
-
-| Category | Triggers | Coverage |
-|----------|----------|----------|
-| Academic / Work | Exams, grades, performance reviews | 8 distinct response patterns per scenario |
-| Life Choices | Quitting jobs, starting a business, changing careers | From "strong opposition" to "analytical support" |
-| Relationships | Dating, breakups, being single, marriage pressure | From "forced marriage" to "respect your choice" |
-| Spending | Shopping, large purchases | From "financial control" to "enjoy your money" |
-| Family | Phone calls, home visits, holidays | From "set rules" to "we miss you" |
+| Scenario | Triggers | Key Dimensions |
+|----------|----------|----------------|
+| Academic / Work | Exams, grades, performance | Control, Temperature, Anxiety, Expectation, Communication |
+| Life Choices | Quitting, entrepreneurship, study abroad | Values, Control, Anxiety, Temperature, Communication |
+| Relationships | Dating, marriage, being single | Values, Social, Control, Temperature |
+| Spending | Shopping, large purchases, salary | Finance, Control, Values |
+| Family | Phone calls, home visits, holidays | Temperature, Participation, Communication |
+| Social / Friends | Going out, parties, socializing | Social, Control, Independence |
+| Digital / Screens | Gaming, phone, internet,熬夜 | Control, Anxiety, Communication |
+| Health / Habits | Eating, sleeping, exercise, diet | Temperature, Control, Participation |
+| Appearance | Dressing, makeup, tattoos, piercings | Values, Control |
+| Education | School choice, cram schools, study abroad | Anxiety, Finance, Expectation, Participation |
 
 ## Version History
 
 | Version | Changes |
 |---------|---------|
-| 2.0.0 | Added 8 parent type profiles, scenario × type matrix, type selection mechanism, hybrid mode |
-| 1.0.0 | Initial release with basic scenario library |
+| 3.0.0 | Restructured to 10-dimension system + diagnosis mode + 10 scenarios × dimension matrix |
+| 2.0.0 | Added 8 parent types, scenario × type matrix |
+| 1.0.0 | Initial release |
 
 ## License
 
