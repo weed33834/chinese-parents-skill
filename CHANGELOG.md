@@ -1,41 +1,35 @@
-# Changelog
+# 更新记录
 
-All notable changes to this project will be documented in this file.
+## v3.0.0 — 2026-08-01
 
-## [3.0.0] - 2026-08-01
+以前只有 8 种妈，现在有 59049 种。
 
-### Added
-- 10-dimension composable parent profile system (3^10 ≈ 59,049 combinations)
-- Diagnosis mode: reverse-analyze parent type from user descriptions
-- 5 new scenarios: social/friends, digital/screens, health/habits, appearance, education choices
-- Dimension-level behavior generation rules for all 10 scenarios
-- Diagnosis report format with visual profile, similarity matching, and communication tips
-- Mixed mode: combine dimensions from different reference types
+- 10 个维度任意组合，每个维度 3-4 个档位，理论覆盖 3^10 ≈ 59049 种家长形态
+- 新增诊断模式——不只模拟，还能根据用户描述反向分析家长类型
+- 场景从 5 个扩到 10 个：新增社交交友、网络电子产品、健康习惯、外表形象、教育择校
+- 每个场景下每个维度档位都有具体的行为影响规则
+- 诊断报告带可视化维度画像、相似类型匹配、场景预测、沟通建议
+- 支持混合模式：可以在参考类型基础上调整任意维度
 
-### Changed
-- Restructured from 8 fixed types to composable dimension system
-- Output format now includes full dimension profile
-- Simulation logic now uses dimension influence rules instead of type templates
+**改动**：从 8 种固定类型重构为维度组合系统，输出格式和模拟逻辑全部重写。
 
-### Removed
-- Fixed type × scenario matrix (replaced by dimension influence rules)
+---
 
-## [2.0.0] - 2026-07-31
+## v2.0.0 — 2026-07-31
 
-### Added
-- 8 parent type profiles (Tiger, Hustle, Helicopter, Zen, Zombie, Controller, Democratic, Absent)
-- User selection mechanism (explicit, inferred, default)
-- Scenario × type cross-reference matrix (5 scenarios × 8 types)
-- Hybrid mode rules for mixed type simulation
+从一种妈变成八种妈。
 
-### Changed
-- Expanded from single-type to multi-type framework
-- Output format updated with parent type field
+- 8 种家长类型：虎妈、鸡娃、直升机、佛系、诈尸式、控制型、民主型、丧偶式
+- 用户可以指定类型，也可以让 AI 根据描述推断
+- 5 个场景 × 8 种类型的交叉参考矩阵
+- 支持混合类型模拟
 
-## [1.0.0] - 2026-07-30
+---
 
-### Added
-- Initial release
-- Basic scenario library (5 scenarios)
-- Core values and behavioral patterns
-- Classic quotes reference
+## v1.0.0 — 2026-07-30
+
+第一个版本。
+
+- 5 个基础场景
+- 核心价值观和行为模式定义
+- 经典语录参考
